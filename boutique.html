@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique - GUIDEGUE ELYSEE</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .boutique-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .carte-produit {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,48,135,0.15);
+            transition: transform 0.3s;
+        }
+        .carte-produit:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,48,135,0.25);
+        }
+        .carte-produit img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .produit-info {
+            padding: 15px;
+        }
+        .produit-info h3 {
+            color: #003087;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .produit-info p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .prix {
+            color: #FFD700;
+            font-size: 20px;
+            font-weight: bold;
+            background: #003087;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .categorie-titre {
+            color: #003087;
+            font-size: 28px;
+            margin: 30px 0 15px;
+            border-left: 5px solid #FFD700;
+            padding-left: 15px;
+        }
+        .btn-acheter {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #003087;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .filtre {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .filtre-btn {
+            background: #003087;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .filtre-btn.active {
+            background: #FFD700;
+            color: #003087;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">GUIDEGUE ELYSEE</div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="boutique.html">Boutique</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>🛍️ Boutique</h1>
+    <p>Découvrez notre sélection de vêtements, voitures et motos</p>
+</section>
+
+<main>
+    <div class="section">
+        <div class="filtre">
+            <button class="filtre-btn active">Tout</button>
+            <button class="filtre-btn">👔 Vêtements</button>
+            <button class="filtre-btn">🚗 Voitures</button>
+            <button class="filtre-btn">🏍️ Motos</button>
+        </div>
+
+        <h2 class="categorie-titre">👔 Vêtements</h2>
+        <div class="boutique-grid">
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400" alt="Costume élégant">
+                <div class="produit-info">
+                    <h3>Costume Élégant Homme</h3>
+                    <p>Costume classique noir, coupe moderne et raffinée</p>
+                    <span class="prix">45 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je veux commander le Costume Élégant" class="btn-acheter" target="_blank">Commander via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Robe élégante">
+                <div class="produit-info">
+                    <h3>Robe Élégante Femme</h3>
+                    <p>Robe de soirée rouge, tissu premium de qualité</p>
+                    <span class="prix">35 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je veux commander la Robe Élégante" class="btn-acheter" target="_blank">Commander via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4b4d51?w=400" alt="Sneakers">
+                <div class="produit-info">
+                    <h3>Sneakers Premium</h3>
+                    <p>Chaussures de sport tendance, confortables et stylées</p>
+                    <span class="prix">25 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je veux commander les Sneakers Premium" class="btn-acheter" target="_blank">Commander via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400" alt="T-shirt">
+                <div class="produit-info">
+                    <h3>T-shirt Casual</h3>
+                    <p>T-shirt blanc coton premium, coupe moderne</p>
+                    <span class="prix">8 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je veux commander le T-shirt Casual" class="btn-acheter" target="_blank">Commander via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="categorie-titre">🚗 Voitures</h2>
+        <div class="boutique-grid">
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400" alt="BMW">
+                <div class="produit-info">
+                    <h3>BMW Série 3 2022</h3>
+                    <p>Berline de luxe, 2.0L, automatique, très bon état</p>
+                    <span class="prix">18 500 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je suis intéressé par la BMW Série 3" class="btn-acheter" target="_blank">Contacter via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400" alt="Toyota">
+                <div class="produit-info">
+                    <h3>Toyota Land Cruiser</h3>
+                    <p>SUV 4x4, diesel, 7 places, idéal pour tout terrain</p>
+                    <span class="prix">25 000 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je suis intéressé par le Toyota Land Cruiser" class="btn-acheter" target="_blank">Contacter via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400" alt="Mercedes">
+                <div class="produit-info">
+                    <h3>Mercedes-Benz C200</h3>
+                    <p>Berline premium, intérieur cuir, toit ouvrant</p>
+                    <span class="prix">22 000 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je suis intéressé par la Mercedes C200" class="btn-acheter" target="_blank">Contacter via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400" alt="Honda">
+                <div class="produit-info">
+                    <h3>Honda Civic 2021</h3>
+                    <p>Berline économique, essence, faible kilométrage</p>
+                    <span class="prix">9 500 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je suis intéressé par la Honda Civic" class="btn-acheter" target="_blank">Contacter via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="categorie-titre">🏍️ Motos</h2>
+        <div class="boutique-grid">
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt="Yamaha">
+                <div class="produit-info">
+                    <h3>Yamaha MT-07</h3>
+                    <p>Moto sportive 689cc, puissante et maniable</p>
+                    <span class="prix">4 500 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je suis intéressé par la Yamaha MT-07" class="btn-acheter" target="_blank">Contacter via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=400" alt="Honda CBR">
+                <div class="produit-info">
+                    <h3>Honda CBR 600RR</h3>
+                    <p>Moto de sport, 600cc, design agressif et moderne</p>
+                    <span class="prix">5 800 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je suis intéressé par la Honda CBR 600RR" class="btn-acheter" target="_blank">Contacter via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400" alt="Scooter">
+                <div class="produit-info">
+                    <h3>Scooter Honda PCX</h3>
+                    <p>Scooter urbain économique, idéal pour la ville</p>
+                    <span class="prix">1 200 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je suis intéressé par le Scooter Honda PCX" class="btn-acheter" target="_blank">Contacter via WhatsApp</a>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?w=400" alt="Kawasaki">
+                <div class="produit-info">
+                    <h3>Kawasaki Ninja 400</h3>
+                    <p>Moto sportive légère, parfaite pour débutants</p>
+                    <span class="prix">3 200 000 FCFA</span><br>
+                    <a href="https://wa.me/23569589639?text=Je suis intéressé par la Kawasaki Ninja 400" class="btn-acheter" target="_blank">Contacter via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-info">
+            <h3>GUIDEGUE ELYSEE</h3>
+            <p>Étudiant en L3 Informatique</p>
+        </div>
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <p>📧 <a href="mailto:eguidegue@gmail.com">eguidegue@gmail.com</a></p>
+            <p>📱 <a href="https://wa.me/23569589639">WhatsApp : +235 69 58 96 39</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 GUIDEGUE ELYSEE. Tous droits réservés.</p>
+    </div>
+</footer>
+</body>
+</html>
