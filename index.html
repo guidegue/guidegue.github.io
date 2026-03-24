@@ -24,19 +24,20 @@
     <p>Étudiant en L3 Informatique | Développeur Web | Passionné de Cybersécurité</p>
     <div class="hero-buttons">
         <a href="portfolio.html" class="btn">Voir mes projets</a>
+        <a href="boutique.html" class="btn" style="background:linear-gradient(135deg,#FFD700,#FFA500);color:#003087;">🛍️ Boutique</a>
         <a href="https://wa.me/23569589639" class="btn btn-whatsapp" target="_blank">📱 WhatsApp</a>
         <a href="mailto:eguidegue@gmail.com" class="btn btn-email">📧 Email</a>
     </div>
 </section>
 <main>
-    <div class="section" id="apropos">
+    <div class="section">
         <h2>À propos de moi</h2>
         <div style="text-align:center; margin-bottom:20px;">
             <img src="https://i.postimg.cc/g0TZQV7G/218694.jpg" alt="GUIDEGUE ELYSEE" style="width:200px; height:200px; border-radius:50%; border:5px solid #003087; object-fit:cover;">
         </div>
-        <p>Bonjour ! Je suis <strong>GUIDEGUE ELYSEE</strong>, étudiant en Licence 3 Informatique. Passionné par le développement web et la cybersécurité.</p>
+        <p>Bonjour ! Je suis <strong>GUIDEGUE ELYSEE</strong>, étudiant en Licence 3 Informatique. Passionné par le développement web et la cybersécurité, je crée des applications web modernes et sécurisées.</p>
     </div>
-    <div class="section" id="apropos">
+    <div class="section">
         <h2>Mes compétences</h2>
         <div class="projets-grid">
             <div class="carte-projet">
@@ -53,7 +54,13 @@
             </div>
         </div>
     </div>
-    <div class="section" id="apropos">
+    <div class="section">
+        <h2>📊 Derniers Visiteurs</h2>
+        <div id="stats-accueil"><p>Chargement...</p></div>
+        <br>
+        <a href="stats.html" class="btn">Voir tous les visiteurs</a>
+    </div>
+    <div class="section">
         <h2>Me contacter</h2>
         <div style="display:flex; gap:15px; flex-wrap:wrap;">
             <a href="https://wa.me/23569589639" class="btn btn-whatsapp" target="_blank">📱 WhatsApp : +235 69 58 96 39</a>
@@ -77,15 +84,41 @@
         <p>&copy; 2026 GUIDEGUE ELYSEE. Tous droits réservés.</p>
     </div>
 </footer>
-<!-- Default Statcounter code for GUIDEGUE ELYSEE -->
+<script src="tracker.js"></script>
+<script>
+const BIN_ID = "69c23186c3097a1dd55429f2";
+const API_KEY = "$2a$10$tbe9LcZbefI37jzYZa7qMurmA3RYF3OLoIhb2vs5CyBUJKoGKLSjC";
+
+async function afficherStats() {
+    try {
+        const res = await fetch("https://api.jsonbin.io/v3/b/" + BIN_ID + "/latest", {
+            headers: { "X-Master-Key": API_KEY }
+        });
+        const data = await res.json();
+        const visiteurs = data.record.visiteurs || [];
+        const div = document.getElementById("stats-accueil");
+        div.innerHTML = "<p><strong>👥 Total visiteurs : " + visiteurs.length + "</strong></p><br>";
+        if (visiteurs.length === 0) {
+            div.innerHTML += "<p>Aucun visiteur pour le moment.</p>";
+            return;
+        }
+        visiteurs.slice(-5).reverse().forEach(v => {
+            div.innerHTML += "<div class='carte-article' style='margin-bottom:10px;'>" +
+                "<p><strong>🌐 IP :</strong> " + v.ip + " | <strong>🌍</strong> " + v.pays + " - " + v.ville + "</p>" +
+                "<p><strong>📄 Page :</strong> " + v.page + " | <strong>⏰</strong> " + v.heure + "</p>" +
+                "</div>";
+        });
+    } catch(e) {
+        document.getElementById("stats-accueil").innerHTML = "<p>Erreur de chargement.</p>";
+    }
+}
+afficherStats();
+</script>
 <script type="text/javascript">
 var sc_project=13212521; 
 var sc_invisible=1; 
 var sc_security="fd97a0c9"; 
 </script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js" async></script>
-<!-- End of Statcounter Code -->
-<script src="tracker.js"></script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 </body>
 </html>
