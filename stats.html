@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques - GUIDEGUE ELYSEE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">GUIDEGUE ELYSEE</div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="boutique.html">Boutique</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="hero">
+    <h1>📊 Statistiques des Visiteurs</h1>
+    <p>Liste de toutes les personnes ayant visité mon site</p>
+</section>
+<main>
+    <div class="section">
+        <h2>👥 Visiteurs (<span id="total">0</span>)</h2>
+        <div id="visiteurs-liste"></div>
+    </div>
+</main>
+<footer>
+    <div class="footer-content">
+        <div class="footer-info">
+            <h3>GUIDEGUE ELYSEE</h3>
+            <p>Étudiant en L3 Informatique</p>
+        </div>
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <p>📧 <a href="mailto:eguidegue@gmail.com">eguidegue@gmail.com</a></p>
+            <p>📱 <a href="https://wa.me/23569589639">WhatsApp : +235 69 58 96 39</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 GUIDEGUE ELYSEE. Tous droits réservés.</p>
+    </div>
+</footer>
+<script>
+const BIN_ID = "69c23186c3097a1dd55429f2";
+const API_KEY = "$2a$10$tbe9LcZbefI37jzYZa7qMurmA3RYF3OLoIhb2vs5CyBUJKoGKLSjC";
+
+async function loadVisiteurs() {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+        headers: { "X-Master-Key": API_KEY }
+    });
+    const data = await res.json();
+    const visiteurs = data.record.visiteurs || [];
+    
+    document.getElementById("total").textContent = visiteurs.length;
+    
+    const liste = document.getElementById("visiteurs-liste");
+    if (visiteurs.length === 0) {
+        liste.innerHTML = "<p>Aucun visiteur pour le moment.</p>";
+        return;
+    }
+    
+    visiteurs.reverse().forEach(v => {
+        liste.innerHTML += `
+        <div class="carte-article">
+            <p><strong>🌐 IP :</strong> ${v.ip}</p>
+            <p><strong>🌍 Pays :</strong> ${v.pays}</p>
+            <p><strong>🏙️ Ville :</strong> ${v.ville}</p>
+            <p><strong>📄 Page :</strong> ${v.page}</p>
+            <p><strong>⏰ Heure :</strong> ${v.heure}</p>
+            <p><strong>💻 Navigateur :</strong> ${v.navigateur}</p>
+        </div>`;
+    });
+}
+
+loadVisiteurs();
+</script>
+</body>
+</html>
